@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		577143BA2A5D366C009F70B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143B92A5D366C009F70B3 /* AppDelegate.swift */; };
+		577143BC2A5D366C009F70B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143BB2A5D366C009F70B3 /* SceneDelegate.swift */; };
+		577143C32A5D366E009F70B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577143C22A5D366E009F70B3 /* Assets.xcassets */; };
+		577143C62A5D366E009F70B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577143C42A5D366E009F70B3 /* LaunchScreen.storyboard */; };
+		577143D12A5D366E009F70B3 /* Watch_CloneCodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143D02A5D366E009F70B3 /* Watch_CloneCodingTests.swift */; };
+		577143DB2A5D366E009F70B3 /* Watch_CloneCodingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143DA2A5D366E009F70B3 /* Watch_CloneCodingUITests.swift */; };
+		577143DD2A5D366E009F70B3 /* Watch_CloneCodingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143DC2A5D366E009F70B3 /* Watch_CloneCodingUITestsLaunchTests.swift */; };
+		577143EB2A5D3A59009F70B3 /* WorldwideClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143EA2A5D3A59009F70B3 /* WorldwideClockViewController.swift */; };
+		577143ED2A5D3A6E009F70B3 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143EC2A5D3A6E009F70B3 /* AlarmViewController.swift */; };
+		577143EF2A5D3A7B009F70B3 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143EE2A5D3A7B009F70B3 /* StopWatchViewController.swift */; };
+		577143F12A5D3A83009F70B3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F02A5D3A83009F70B3 /* TimerViewController.swift */; };
+		577143F42A5D4678009F70B3 /* StopWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F32A5D4678009F70B3 /* StopWatchCell.swift */; };
+		577143F62A5E6642009F70B3 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F52A5E6642009F70B3 /* StopWatch.swift */; };
+		577143F82A5FDF71009F70B3 /* WorldWideClockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */; };
+		577143FA2A5FE1BD009F70B3 /* WorldWideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F92A5FE1BD009F70B3 /* WorldWideCell.swift */; };
+		577143FC2A601EA0009F70B3 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143FB2A601EA0009F70B3 /* WorldClock.swift */; };
+		577143FE2A6133A5009F70B3 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143FD2A6133A5009F70B3 /* AddCityViewController.swift */; };
+		577144002A628414009F70B3 /* CityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143FF2A628414009F70B3 /* CityListCell.swift */; };
+		577144022A67C72F009F70B3 /* CircularProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577144012A67C72F009F70B3 /* CircularProgressIndicator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		577143CD2A5D366E009F70B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 577143AE2A5D366C009F70B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 577143B52A5D366C009F70B3;
+			remoteInfo = Watch_CloneCoding;
+		};
+		577143D72A5D366E009F70B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 577143AE2A5D366C009F70B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 577143B52A5D366C009F70B3;
+			remoteInfo = Watch_CloneCoding;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		577143B62A5D366C009F70B3 /* Watch_CloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch_CloneCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		577143B92A5D366C009F70B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		577143BB2A5D366C009F70B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		577143C22A5D366E009F70B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		577143C52A5D366E009F70B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		577143C72A5D366E009F70B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		577143CC2A5D366E009F70B3 /* Watch_CloneCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Watch_CloneCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		577143D02A5D366E009F70B3 /* Watch_CloneCodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_CloneCodingTests.swift; sourceTree = "<group>"; };
+		577143D62A5D366E009F70B3 /* Watch_CloneCodingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Watch_CloneCodingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		577143DA2A5D366E009F70B3 /* Watch_CloneCodingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_CloneCodingUITests.swift; sourceTree = "<group>"; };
+		577143DC2A5D366E009F70B3 /* Watch_CloneCodingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_CloneCodingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		577143EA2A5D3A59009F70B3 /* WorldwideClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideClockViewController.swift; sourceTree = "<group>"; };
+		577143EC2A5D3A6E009F70B3 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		577143EE2A5D3A7B009F70B3 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		577143F02A5D3A83009F70B3 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		577143F32A5D4678009F70B3 /* StopWatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchCell.swift; sourceTree = "<group>"; };
+		577143F52A5E6642009F70B3 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWideClockHeaderView.swift; sourceTree = "<group>"; };
+		577143F92A5FE1BD009F70B3 /* WorldWideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWideCell.swift; sourceTree = "<group>"; };
+		577143FB2A601EA0009F70B3 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClock.swift; sourceTree = "<group>"; };
+		577143FD2A6133A5009F70B3 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		577143FF2A628414009F70B3 /* CityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListCell.swift; sourceTree = "<group>"; };
+		577144012A67C72F009F70B3 /* CircularProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressIndicator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		577143B32A5D366C009F70B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577143C92A5D366E009F70B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577143D32A5D366E009F70B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		577143AD2A5D366C009F70B3 = {
+			isa = PBXGroup;
+			children = (
+				577143B82A5D366C009F70B3 /* Watch_CloneCoding */,
+				577143CF2A5D366E009F70B3 /* Watch_CloneCodingTests */,
+				577143D92A5D366E009F70B3 /* Watch_CloneCodingUITests */,
+				577143B72A5D366C009F70B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		577143B72A5D366C009F70B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				577143B62A5D366C009F70B3 /* Watch_CloneCoding.app */,
+				577143CC2A5D366E009F70B3 /* Watch_CloneCodingTests.xctest */,
+				577143D62A5D366E009F70B3 /* Watch_CloneCodingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		577143B82A5D366C009F70B3 /* Watch_CloneCoding */ = {
+			isa = PBXGroup;
+			children = (
+				577143F22A5D464F009F70B3 /* Cell */,
+				577143E92A5D39F7009F70B3 /* Controller */,
+				577143B92A5D366C009F70B3 /* AppDelegate.swift */,
+				577143BB2A5D366C009F70B3 /* SceneDelegate.swift */,
+				577143C22A5D366E009F70B3 /* Assets.xcassets */,
+				577143C42A5D366E009F70B3 /* LaunchScreen.storyboard */,
+				577143C72A5D366E009F70B3 /* Info.plist */,
+				577143F52A5E6642009F70B3 /* StopWatch.swift */,
+				577143FB2A601EA0009F70B3 /* WorldClock.swift */,
+			);
+			path = Watch_CloneCoding;
+			sourceTree = "<group>";
+		};
+		577143CF2A5D366E009F70B3 /* Watch_CloneCodingTests */ = {
+			isa = PBXGroup;
+			children = (
+				577143D02A5D366E009F70B3 /* Watch_CloneCodingTests.swift */,
+			);
+			path = Watch_CloneCodingTests;
+			sourceTree = "<group>";
+		};
+		577143D92A5D366E009F70B3 /* Watch_CloneCodingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				577143DA2A5D366E009F70B3 /* Watch_CloneCodingUITests.swift */,
+				577143DC2A5D366E009F70B3 /* Watch_CloneCodingUITestsLaunchTests.swift */,
+			);
+			path = Watch_CloneCodingUITests;
+			sourceTree = "<group>";
+		};
+		577143E92A5D39F7009F70B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				577143EA2A5D3A59009F70B3 /* WorldwideClockViewController.swift */,
+				577143EC2A5D3A6E009F70B3 /* AlarmViewController.swift */,
+				577143EE2A5D3A7B009F70B3 /* StopWatchViewController.swift */,
+				577143F02A5D3A83009F70B3 /* TimerViewController.swift */,
+				577143FD2A6133A5009F70B3 /* AddCityViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		577143F22A5D464F009F70B3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				577143F32A5D4678009F70B3 /* StopWatchCell.swift */,
+				577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */,
+				577143F92A5FE1BD009F70B3 /* WorldWideCell.swift */,
+				577143FF2A628414009F70B3 /* CityListCell.swift */,
+				577144012A67C72F009F70B3 /* CircularProgressIndicator.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		577143B52A5D366C009F70B3 /* Watch_CloneCoding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577143E02A5D366E009F70B3 /* Build configuration list for PBXNativeTarget "Watch_CloneCoding" */;
+			buildPhases = (
+				577143B22A5D366C009F70B3 /* Sources */,
+				577143B32A5D366C009F70B3 /* Frameworks */,
+				577143B42A5D366C009F70B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Watch_CloneCoding;
+			productName = Watch_CloneCoding;
+			productReference = 577143B62A5D366C009F70B3 /* Watch_CloneCoding.app */;
+			productType = "com.apple.product-type.application";
+		};
+		577143CB2A5D366E009F70B3 /* Watch_CloneCodingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577143E32A5D366E009F70B3 /* Build configuration list for PBXNativeTarget "Watch_CloneCodingTests" */;
+			buildPhases = (
+				577143C82A5D366E009F70B3 /* Sources */,
+				577143C92A5D366E009F70B3 /* Frameworks */,
+				577143CA2A5D366E009F70B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				577143CE2A5D366E009F70B3 /* PBXTargetDependency */,
+			);
+			name = Watch_CloneCodingTests;
+			productName = Watch_CloneCodingTests;
+			productReference = 577143CC2A5D366E009F70B3 /* Watch_CloneCodingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		577143D52A5D366E009F70B3 /* Watch_CloneCodingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577143E62A5D366E009F70B3 /* Build configuration list for PBXNativeTarget "Watch_CloneCodingUITests" */;
+			buildPhases = (
+				577143D22A5D366E009F70B3 /* Sources */,
+				577143D32A5D366E009F70B3 /* Frameworks */,
+				577143D42A5D366E009F70B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				577143D82A5D366E009F70B3 /* PBXTargetDependency */,
+			);
+			name = Watch_CloneCodingUITests;
+			productName = Watch_CloneCodingUITests;
+			productReference = 577143D62A5D366E009F70B3 /* Watch_CloneCodingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		577143AE2A5D366C009F70B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					577143B52A5D366C009F70B3 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					577143CB2A5D366E009F70B3 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 577143B52A5D366C009F70B3;
+					};
+					577143D52A5D366E009F70B3 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 577143B52A5D366C009F70B3;
+					};
+				};
+			};
+			buildConfigurationList = 577143B12A5D366C009F70B3 /* Build configuration list for PBXProject "Watch_CloneCoding" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 577143AD2A5D366C009F70B3;
+			productRefGroup = 577143B72A5D366C009F70B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				577143B52A5D366C009F70B3 /* Watch_CloneCoding */,
+				577143CB2A5D366E009F70B3 /* Watch_CloneCodingTests */,
+				577143D52A5D366E009F70B3 /* Watch_CloneCodingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		577143B42A5D366C009F70B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577143C62A5D366E009F70B3 /* LaunchScreen.storyboard in Resources */,
+				577143C32A5D366E009F70B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577143CA2A5D366E009F70B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577143D42A5D366E009F70B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		577143B22A5D366C009F70B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577144002A628414009F70B3 /* CityListCell.swift in Sources */,
+				577143F42A5D4678009F70B3 /* StopWatchCell.swift in Sources */,
+				577143FC2A601EA0009F70B3 /* WorldClock.swift in Sources */,
+				577143ED2A5D3A6E009F70B3 /* AlarmViewController.swift in Sources */,
+				577143F82A5FDF71009F70B3 /* WorldWideClockHeaderView.swift in Sources */,
+				577143BA2A5D366C009F70B3 /* AppDelegate.swift in Sources */,
+				577143EB2A5D3A59009F70B3 /* WorldwideClockViewController.swift in Sources */,
+				577143BC2A5D366C009F70B3 /* SceneDelegate.swift in Sources */,
+				577143FE2A6133A5009F70B3 /* AddCityViewController.swift in Sources */,
+				577143F12A5D3A83009F70B3 /* TimerViewController.swift in Sources */,
+				577143FA2A5FE1BD009F70B3 /* WorldWideCell.swift in Sources */,
+				577144022A67C72F009F70B3 /* CircularProgressIndicator.swift in Sources */,
+				577143EF2A5D3A7B009F70B3 /* StopWatchViewController.swift in Sources */,
+				577143F62A5E6642009F70B3 /* StopWatch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577143C82A5D366E009F70B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577143D12A5D366E009F70B3 /* Watch_CloneCodingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577143D22A5D366E009F70B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577143DD2A5D366E009F70B3 /* Watch_CloneCodingUITestsLaunchTests.swift in Sources */,
+				577143DB2A5D366E009F70B3 /* Watch_CloneCodingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		577143CE2A5D366E009F70B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 577143B52A5D366C009F70B3 /* Watch_CloneCoding */;
+			targetProxy = 577143CD2A5D366E009F70B3 /* PBXContainerItemProxy */;
+		};
+		577143D82A5D366E009F70B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 577143B52A5D366C009F70B3 /* Watch_CloneCoding */;
+			targetProxy = 577143D72A5D366E009F70B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		577143C42A5D366E009F70B3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				577143C52A5D366E009F70B3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		577143DE2A5D366E009F70B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		577143DF2A5D366E009F70B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		577143E12A5D366E009F70B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8R3A969C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Watch_CloneCoding/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studyclone.Watch-CloneCoding";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		577143E22A5D366E009F70B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8R3A969C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Watch_CloneCoding/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studyclone.Watch-CloneCoding";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		577143E42A5D366E009F70B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8R3A969C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studyclone.Watch-CloneCodingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Watch_CloneCoding.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Watch_CloneCoding";
+			};
+			name = Debug;
+		};
+		577143E52A5D366E009F70B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8R3A969C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studyclone.Watch-CloneCodingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Watch_CloneCoding.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Watch_CloneCoding";
+			};
+			name = Release;
+		};
+		577143E72A5D366E009F70B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8R3A969C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studyclone.Watch-CloneCodingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Watch_CloneCoding;
+			};
+			name = Debug;
+		};
+		577143E82A5D366E009F70B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VF8R3A969C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "studyclone.Watch-CloneCodingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Watch_CloneCoding;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		577143B12A5D366C009F70B3 /* Build configuration list for PBXProject "Watch_CloneCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577143DE2A5D366E009F70B3 /* Debug */,
+				577143DF2A5D366E009F70B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		577143E02A5D366E009F70B3 /* Build configuration list for PBXNativeTarget "Watch_CloneCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577143E12A5D366E009F70B3 /* Debug */,
+				577143E22A5D366E009F70B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		577143E32A5D366E009F70B3 /* Build configuration list for PBXNativeTarget "Watch_CloneCodingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577143E42A5D366E009F70B3 /* Debug */,
+				577143E52A5D366E009F70B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		577143E62A5D366E009F70B3 /* Build configuration list for PBXNativeTarget "Watch_CloneCodingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577143E72A5D366E009F70B3 /* Debug */,
+				577143E82A5D366E009F70B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 577143AE2A5D366C009F70B3 /* Project object */;
+}
