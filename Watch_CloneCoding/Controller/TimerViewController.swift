@@ -13,6 +13,7 @@ class TimerViewController: UIViewController {
     let test2 = ["one","two","three","four","five"]
     let constText = ["시간", "분", "초"]
     
+    var notification = Notification()
     var timerIsStarted: Bool = false
     var selectedHour: Int = 0
     var selectedMin: Int = 0
@@ -155,8 +156,10 @@ class TimerViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = self.colorSet
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = 10
         view.clipsToBounds = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.goSoundSelection(_:))))
+        view.tintColor = .red
         return view
     }()
     
@@ -190,7 +193,25 @@ class TimerViewController: UIViewController {
         return view
     }()
     
+    var whenTimerEndedLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "타이머 종료 시"
+        view.textColor = .white
+        view.font = .systemFont(ofSize: 15, weight: .semibold)
+        return view
+    }()
     
+    
+    var soundSelectionLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.textColor = .systemGray
+        view.text = "test"
+        view.font = .systemFont(ofSize: 15)
+        view.textAlignment = .right
+        return view
+    }()
 }
 
 // MARK: - UI Set Up
@@ -313,21 +334,37 @@ extension TimerViewController {
         
         self.view.addSubview(self.soundSelectionView)
         self.soundSelectionView.topAnchor.constraint(equalTo: self.cancelBtn.bottomAnchor, constant: 30).isActive = true
-        self.soundSelectionView.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        self.soundSelectionView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         self.soundSelectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: safeConstant).isActive = true
         self.soundSelectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -safeConstant).isActive = true
         
         self.timePicker.overrideUserInterfaceStyle = .dark
-        
-        
-        
-        
+    
         self.view.addSubview(self.soundSelectionView)
         
+        self.soundSelectionView.addSubview(self.whenTimerEndedLabel)
+        self.whenTimerEndedLabel.leadingAnchor.constraint(equalTo: self.soundSelectionView.leadingAnchor, constant: 15).isActive = true
+        self.whenTimerEndedLabel.centerYAnchor.constraint(equalTo: self.soundSelectionView.centerYAnchor).isActive = true
+        self.whenTimerEndedLabel.sizeToFit()
+        
+        let trailingBtn = UILabel()
+        trailingBtn.text = ">"
+        trailingBtn.font = .systemFont(ofSize: 14)
+        trailingBtn.translatesAutoresizingMaskIntoConstraints = false
+        trailingBtn.textColor = .systemGray
+        trailingBtn.sizeToFit()
+        
+        self.soundSelectionView.addSubview(trailingBtn)
+        trailingBtn.trailingAnchor.constraint(equalTo: self.soundSelectionView.trailingAnchor, constant: -15).isActive = true
+        trailingBtn.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        trailingBtn.centerYAnchor.constraint(equalTo: self.soundSelectionView.centerYAnchor).isActive = true
+        
+        self.soundSelectionView.addSubview(self.soundSelectionLabel)
+        self.soundSelectionLabel.trailingAnchor.constraint(equalTo: trailingBtn.leadingAnchor, constant: -15).isActive = true
+        self.soundSelectionLabel.leadingAnchor.constraint(equalTo: self.whenTimerEndedLabel.trailingAnchor).isActive = true
+        self.soundSelectionLabel.centerYAnchor.constraint(equalTo: self.soundSelectionView.centerYAnchor).isActive = true
+        
     }
-    
-    
-    
     
 }
 
@@ -397,6 +434,13 @@ extension TimerViewController {
         self.startBtn.titleLabel?.font = .systemFont(ofSize: 18)
         self.timerIsStarted = false
     }
+    
+    @objc // soundSelectionView 터치 이벤트
+    private func goSoundSelection(_ sender: UIGestureRecognizer) {
+        let VC = SoundSelectionViewController()
+        VC.modalPresentationStyle = .formSheet
+        self.present(VC, animated: true)
+    }
 }
 
 
@@ -413,8 +457,12 @@ extension TimerViewController {
         self.remainingLabel.text = self.makeTimeLabelToGood(self.remainingTime!)
         whenTimerAlarmed()
 
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true){ _ in
-            if self.realTime! == 0 {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true){ a in
+            if self.realTime! < 0 {
+                self.changeViewToCircle(false)
+                self.notification.makeNoti(title: "시계", body: "타이머 완료", userInfo: ["시간": "success"])
+                a.invalidate()
+                self.cancelBtnEvent(self.startBtn)
                 return
             }
             self.realTime! -= 1
@@ -430,6 +478,7 @@ extension TimerViewController {
     
     // 타이머가 멈췄을 때
     private func timerStopped() {
+        print("tttt")
         self.timer?.invalidate()
         let offsetTime = self.view.layer.convertTime(CACurrentMediaTime(), from: nil)
         self.view.layer.speed = 0
@@ -438,11 +487,14 @@ extension TimerViewController {
     
     // 타이머가 다시 시작될 때
     private func timerRestarted() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true){ _ in
-            if self.realTime! == 0 {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true){ a in
+            if self.realTime! < 0 {
+                self.changeViewToCircle(false)
+                self.notification.makeNoti(title: "시계", body: "타이머 완료", userInfo: ["시간": "success"])
+                a.invalidate()
+                self.cancelBtnEvent(self.startBtn)
                 return
             }
-            print(self.realTime!)
             self.realTime! -= 1
             if (self.realTime! % 100 == 0) {
                 self.remainingLabel.text = self.makeTimeLabelToGood(self.realTime!/100)
@@ -583,5 +635,3 @@ extension TimerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
 }
-
-

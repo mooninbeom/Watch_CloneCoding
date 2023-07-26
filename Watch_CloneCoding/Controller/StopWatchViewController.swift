@@ -32,7 +32,7 @@ class StopWatchViewController: UIViewController {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "00:00.00"
-        view.font = .monospacedDigitSystemFont(ofSize: 90, weight: UIFont.Weight.thin)
+        view.font = .monospacedDigitSystemFont(ofSize: 85, weight: UIFont.Weight.thin)
         view.textColor = .white
         view.textAlignment = .center
         return view

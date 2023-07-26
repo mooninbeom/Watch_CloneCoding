@@ -19,13 +19,23 @@
 		577143EF2A5D3A7B009F70B3 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143EE2A5D3A7B009F70B3 /* StopWatchViewController.swift */; };
 		577143F12A5D3A83009F70B3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F02A5D3A83009F70B3 /* TimerViewController.swift */; };
 		577143F42A5D4678009F70B3 /* StopWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F32A5D4678009F70B3 /* StopWatchCell.swift */; };
-		577143F62A5E6642009F70B3 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F52A5E6642009F70B3 /* StopWatch.swift */; };
 		577143F82A5FDF71009F70B3 /* WorldWideClockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */; };
 		577143FA2A5FE1BD009F70B3 /* WorldWideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143F92A5FE1BD009F70B3 /* WorldWideCell.swift */; };
-		577143FC2A601EA0009F70B3 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143FB2A601EA0009F70B3 /* WorldClock.swift */; };
 		577143FE2A6133A5009F70B3 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143FD2A6133A5009F70B3 /* AddCityViewController.swift */; };
 		577144002A628414009F70B3 /* CityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577143FF2A628414009F70B3 /* CityListCell.swift */; };
-		577144022A67C72F009F70B3 /* CircularProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577144012A67C72F009F70B3 /* CircularProgressIndicator.swift */; };
+		577144042A6A7082009F70B3 /* SoundSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577144032A6A7082009F70B3 /* SoundSelectionViewController.swift */; };
+		577144062A6A7AEF009F70B3 /* SoundSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577144052A6A7AEF009F70B3 /* SoundSelectionCell.swift */; };
+		577144092A6A7EC7009F70B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577144082A6A7EC7009F70B3 /* AudioToolbox.framework */; };
+		5771440B2A6BB64C009F70B3 /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5771440A2A6BB64C009F70B3 /* Vibration.swift */; };
+		5771440D2A6BB9FC009F70B3 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5771440C2A6BB9FC009F70B3 /* Notification.swift */; };
+		5771440F2A6E4F3D009F70B3 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5771440E2A6E4F3D009F70B3 /* AlarmCell.swift */; };
+		577144122A6E58D8009F70B3 /* AlarmHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577144112A6E58D8009F70B3 /* AlarmHeaderView.swift */; };
+		577144152A6E5AC7009F70B3 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577144142A6E5AC7009F70B3 /* WorldClock.swift */; };
+		57F3FD172A6F9C4300A5F363 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3FD162A6F9C4300A5F363 /* Alarm.swift */; };
+		57F3FD192A6FADB600A5F363 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3FD182A6FADB600A5F363 /* AddAlarmViewController.swift */; };
+		57F3FD1B2A6FF28900A5F363 /* AddAlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3FD1A2A6FF28900A5F363 /* AddAlarmCell.swift */; };
+		57F3FD1D2A70DBE100A5F363 /* RepeatDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3FD1C2A70DBE100A5F363 /* RepeatDateSelectionViewController.swift */; };
+		57F3FD1F2A70E8AC00A5F363 /* DateSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F3FD1E2A70E8AC00A5F363 /* DateSelectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,13 +72,23 @@
 		577143EE2A5D3A7B009F70B3 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		577143F02A5D3A83009F70B3 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		577143F32A5D4678009F70B3 /* StopWatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchCell.swift; sourceTree = "<group>"; };
-		577143F52A5E6642009F70B3 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWideClockHeaderView.swift; sourceTree = "<group>"; };
 		577143F92A5FE1BD009F70B3 /* WorldWideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWideCell.swift; sourceTree = "<group>"; };
-		577143FB2A601EA0009F70B3 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClock.swift; sourceTree = "<group>"; };
 		577143FD2A6133A5009F70B3 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		577143FF2A628414009F70B3 /* CityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListCell.swift; sourceTree = "<group>"; };
-		577144012A67C72F009F70B3 /* CircularProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressIndicator.swift; sourceTree = "<group>"; };
+		577144032A6A7082009F70B3 /* SoundSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionViewController.swift; sourceTree = "<group>"; };
+		577144052A6A7AEF009F70B3 /* SoundSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionCell.swift; sourceTree = "<group>"; };
+		577144082A6A7EC7009F70B3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5771440A2A6BB64C009F70B3 /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
+		5771440C2A6BB9FC009F70B3 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		5771440E2A6E4F3D009F70B3 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		577144112A6E58D8009F70B3 /* AlarmHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmHeaderView.swift; sourceTree = "<group>"; };
+		577144142A6E5AC7009F70B3 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClock.swift; sourceTree = "<group>"; };
+		57F3FD162A6F9C4300A5F363 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		57F3FD182A6FADB600A5F363 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
+		57F3FD1A2A6FF28900A5F363 /* AddAlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmCell.swift; sourceTree = "<group>"; };
+		57F3FD1C2A70DBE100A5F363 /* RepeatDateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDateSelectionViewController.swift; sourceTree = "<group>"; };
+		57F3FD1E2A70E8AC00A5F363 /* DateSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577144092A6A7EC7009F70B3 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +124,7 @@
 				577143CF2A5D366E009F70B3 /* Watch_CloneCodingTests */,
 				577143D92A5D366E009F70B3 /* Watch_CloneCodingUITests */,
 				577143B72A5D366C009F70B3 /* Products */,
+				577144072A6A7EC7009F70B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +141,8 @@
 		577143B82A5D366C009F70B3 /* Watch_CloneCoding */ = {
 			isa = PBXGroup;
 			children = (
+				577144132A6E5900009F70B3 /* Model */,
+				577144102A6E4F44009F70B3 /* HeaderView */,
 				577143F22A5D464F009F70B3 /* Cell */,
 				577143E92A5D39F7009F70B3 /* Controller */,
 				577143B92A5D366C009F70B3 /* AppDelegate.swift */,
@@ -126,8 +150,6 @@
 				577143C22A5D366E009F70B3 /* Assets.xcassets */,
 				577143C42A5D366E009F70B3 /* LaunchScreen.storyboard */,
 				577143C72A5D366E009F70B3 /* Info.plist */,
-				577143F52A5E6642009F70B3 /* StopWatch.swift */,
-				577143FB2A601EA0009F70B3 /* WorldClock.swift */,
 			);
 			path = Watch_CloneCoding;
 			sourceTree = "<group>";
@@ -157,6 +179,9 @@
 				577143EE2A5D3A7B009F70B3 /* StopWatchViewController.swift */,
 				577143F02A5D3A83009F70B3 /* TimerViewController.swift */,
 				577143FD2A6133A5009F70B3 /* AddCityViewController.swift */,
+				577144032A6A7082009F70B3 /* SoundSelectionViewController.swift */,
+				57F3FD182A6FADB600A5F363 /* AddAlarmViewController.swift */,
+				57F3FD1C2A70DBE100A5F363 /* RepeatDateSelectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,12 +190,42 @@
 			isa = PBXGroup;
 			children = (
 				577143F32A5D4678009F70B3 /* StopWatchCell.swift */,
-				577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */,
 				577143F92A5FE1BD009F70B3 /* WorldWideCell.swift */,
 				577143FF2A628414009F70B3 /* CityListCell.swift */,
-				577144012A67C72F009F70B3 /* CircularProgressIndicator.swift */,
+				577144052A6A7AEF009F70B3 /* SoundSelectionCell.swift */,
+				5771440E2A6E4F3D009F70B3 /* AlarmCell.swift */,
+				57F3FD1A2A6FF28900A5F363 /* AddAlarmCell.swift */,
+				57F3FD1E2A70E8AC00A5F363 /* DateSelectionCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		577144072A6A7EC7009F70B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				577144082A6A7EC7009F70B3 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		577144102A6E4F44009F70B3 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				577143F72A5FDF71009F70B3 /* WorldWideClockHeaderView.swift */,
+				577144112A6E58D8009F70B3 /* AlarmHeaderView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		577144132A6E5900009F70B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5771440A2A6BB64C009F70B3 /* Vibration.swift */,
+				5771440C2A6BB9FC009F70B3 /* Notification.swift */,
+				577144142A6E5AC7009F70B3 /* WorldClock.swift */,
+				57F3FD162A6F9C4300A5F363 /* Alarm.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,18 +360,27 @@
 			files = (
 				577144002A628414009F70B3 /* CityListCell.swift in Sources */,
 				577143F42A5D4678009F70B3 /* StopWatchCell.swift in Sources */,
-				577143FC2A601EA0009F70B3 /* WorldClock.swift in Sources */,
+				5771440D2A6BB9FC009F70B3 /* Notification.swift in Sources */,
+				577144062A6A7AEF009F70B3 /* SoundSelectionCell.swift in Sources */,
+				5771440F2A6E4F3D009F70B3 /* AlarmCell.swift in Sources */,
+				577144152A6E5AC7009F70B3 /* WorldClock.swift in Sources */,
 				577143ED2A5D3A6E009F70B3 /* AlarmViewController.swift in Sources */,
 				577143F82A5FDF71009F70B3 /* WorldWideClockHeaderView.swift in Sources */,
+				5771440B2A6BB64C009F70B3 /* Vibration.swift in Sources */,
+				577144122A6E58D8009F70B3 /* AlarmHeaderView.swift in Sources */,
 				577143BA2A5D366C009F70B3 /* AppDelegate.swift in Sources */,
 				577143EB2A5D3A59009F70B3 /* WorldwideClockViewController.swift in Sources */,
+				57F3FD192A6FADB600A5F363 /* AddAlarmViewController.swift in Sources */,
+				57F3FD172A6F9C4300A5F363 /* Alarm.swift in Sources */,
 				577143BC2A5D366C009F70B3 /* SceneDelegate.swift in Sources */,
 				577143FE2A6133A5009F70B3 /* AddCityViewController.swift in Sources */,
 				577143F12A5D3A83009F70B3 /* TimerViewController.swift in Sources */,
+				57F3FD1F2A70E8AC00A5F363 /* DateSelectionCell.swift in Sources */,
 				577143FA2A5FE1BD009F70B3 /* WorldWideCell.swift in Sources */,
-				577144022A67C72F009F70B3 /* CircularProgressIndicator.swift in Sources */,
+				57F3FD1D2A70DBE100A5F363 /* RepeatDateSelectionViewController.swift in Sources */,
 				577143EF2A5D3A7B009F70B3 /* StopWatchViewController.swift in Sources */,
-				577143F62A5E6642009F70B3 /* StopWatch.swift in Sources */,
+				57F3FD1B2A6FF28900A5F363 /* AddAlarmCell.swift in Sources */,
+				577144042A6A7082009F70B3 /* SoundSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

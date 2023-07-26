@@ -8,10 +8,14 @@
 import UIKit
 
 class WorldwideClockViewController: UIViewController {
+    
+    
 
     private var worldClockList: [WorldClock] = [WorldClock]()
     private var personalClockList: [WorldClock] = [WorldClock(translatedName: "대한민국", name: "Asia/Seoul")]
     var selectedCity: WorldClock?
+    
+    private var topItem = UINavigationItem()
     
     
     override func viewDidLoad() {
@@ -32,12 +36,15 @@ class WorldwideClockViewController: UIViewController {
         let view = UINavigationBar()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.tintColor = .systemOrange
-        let items = UINavigationItem()
-        let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(goAddView))
-        let editBtn = UIBarButtonItem(title: "편집", style: .done, target: self, action: #selector(editTable))
-        items.rightBarButtonItem = addBtn
-        items.leftBarButtonItem = editBtn
-        view.setItems([items], animated: true)
+//        let items = UINavigationItem()
+        let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(goAddView))
+        let editBtn = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editTable))
+        self.topItem.rightBarButtonItem = addBtn
+        self.topItem.leftBarButtonItem = editBtn
+        
+//        items.rightBarButtonItem = addBtn
+//        items.leftBarButtonItem = editBtn
+        view.setItems([self.topItem], animated: true)
         return view
     }()
     
@@ -232,6 +239,13 @@ extension WorldwideClockViewController: UITableViewDelegate, UITableViewDataSour
             self.personalClockList.remove(at: removeIndex!)
         }
         self.clockTableView.reloadData()
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+        self.topItem.title = "세계 시계"
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        self.topItem.title = ""
     }
 }

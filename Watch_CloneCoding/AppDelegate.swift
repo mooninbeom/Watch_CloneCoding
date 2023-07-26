@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
@@ -25,14 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            UITabBar.appearance().scrollEdgeAppearance = appearance
             let naviAppear = UINavigationBarAppearance()
             naviAppear.configureWithOpaqueBackground()
-            naviAppear.backgroundColor = .black
+            naviAppear.backgroundColor = .systemBackground
+            naviAppear.shadowImage = UIImage()
             UINavigationBar.appearance().standardAppearance = naviAppear
             UINavigationBar.appearance().scrollEdgeAppearance = naviAppear
 //            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             
             
-            UINavigationBar.appearance().backgroundColor = .black
+//            UINavigationBar.appearance().backgroundColor = .systemBackground
         }
+        UNUserNotificationCenter.current().delegate = self
+        
         return true
     }
 
@@ -53,3 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("willPresent - identifier: \(notification.request.identifier)")
+        print("willPresent - UserInfo: \(notification.request.content.userInfo)")
+        
+        completionHandler([.banner,.list, .badge, .sound])
+
+    }
+}

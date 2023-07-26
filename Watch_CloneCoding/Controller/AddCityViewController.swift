@@ -18,6 +18,8 @@ class AddCityViewController: UIViewController {
         self.view.backgroundColor = colorSet
         self.navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = colorSet
         self.navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.clipsToBounds = true
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationController?.isNavigationBarHidden = false
         setUp()
