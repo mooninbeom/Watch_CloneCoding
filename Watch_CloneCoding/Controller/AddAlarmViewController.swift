@@ -9,8 +9,11 @@ import UIKit
 
 class AddAlarmViewController: UIViewController {
     
+    var row: Int?
     var repeatDate: [Bool]?
     var time: [Int] = [0,0]
+    var isAdded: Bool = true
+    var edittingAlarm: Alarm?
     
     private let selectList: [String] = ["반복", "레이블", "사운드", "다시 알림"]
     private let hour: [Int] = {
@@ -39,6 +42,15 @@ class AddAlarmViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let editAlarm = self.edittingAlarm {
+            self.timePickerView.selectRow(editAlarm.time[0], inComponent: 0, animated: true)
+            self.timePickerView.selectRow(editAlarm.time[1], inComponent: 1, animated: true)
+            self.time[0] = editAlarm.time[0]
+            self.time[1] = editAlarm.time[1]
+            self.repeatDate = editAlarm.repeatDate
+            self.edittingAlarm = nil
+        }
+        
         self.optionTableView.reloadData()
     }
     
@@ -50,7 +62,7 @@ class AddAlarmViewController: UIViewController {
         view.clipsToBounds = true
         
         let navigationItem = UINavigationItem()
-        navigationItem.title = "알람 추가"
+        navigationItem.title = (self.isAdded) ? "알람 추가" : "알람 편집"
         
         let cancelBtn = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelBtnEvent))
         let saveBtn = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(saveBtnEvent))
@@ -133,6 +145,13 @@ extension AddAlarmViewController {
         }
     }
     
+    private func editString(time: Int) -> String {
+        if time<10 {
+            return "0\(time)"
+        } else {
+            return String(time)
+        }
+    }
     
     @objc
     private func cancelBtnEvent() {
@@ -141,18 +160,30 @@ extension AddAlarmViewController {
     
     @objc
     private func saveBtnEvent(_ sender: UIButton!) {
-        guard let isOnCell = self.optionTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? AddAlarmCell else {
-            print("fail")
-            return
-        }
-        let isOn = isOnCell.repeatIsOnSwitch.isOn
+        guard let fourthCell = self.optionTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? AddAlarmCell else {return}
+        guard let secondCell = self.optionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? AddAlarmCell else {return}
+        guard let firstCell = self.optionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddAlarmCell else {return}
+        
+        let isOn = fourthCell.repeatIsOnSwitch.isOn
         let repeatDate = self.repeatDate ?? [false,false,false,false,false,false,false]
-        let addAlarm = Alarm(time: self.time, repeatDate: repeatDate, remaind: isOn, isOn: true)
+        let addAlarm = Alarm(time: self.time, repeatDate: repeatDate, isOn: true)
+        
+        if let cellText = secondCell.textField.text {
+            addAlarm.remaind = (cellText.isEmpty) ? nil : cellText
+        }
+        
+        if firstCell.accessoryLabel.text! != "안 함" {
+            addAlarm.repeatDateString = firstCell.accessoryLabel.text!
+        }
         
         guard let VC1 = self.presentingViewController as? UITabBarController else {return}
         guard let VC2 = VC1.selectedViewController as? AlarmViewController else {return}
         
         VC2.receivedAlarm = addAlarm
+        VC2.isEdited = !self.isAdded
+        if !self.isAdded {
+            VC2.receivedRow = self.row!
+        }
         VC2.viewWillAppear(true)
         self.dismiss(animated: true)
     }
@@ -256,8 +287,11 @@ extension AddAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 27))
+//        let hour = editString(time: self.hour[row])
+//        let min = editString(time: self.minute[row])
+        
         label.textColor = .white.withAlphaComponent(0.9)
-        label.text = (component == 0) ? String(self.hour[row]) : String(self.minute[row])
+        label.text = (component == 0) ? editString(time: self.hour[row]): editString(time: self.minute[row])
         label.textAlignment = (component == 0) ? .right : .left
         label.font = .systemFont(ofSize: 27)
         
@@ -276,4 +310,6 @@ extension AddAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         
     }
+    
+    
 }

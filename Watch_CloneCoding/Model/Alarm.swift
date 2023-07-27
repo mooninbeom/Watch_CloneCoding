@@ -12,13 +12,17 @@ class Alarm {
     var time: [Int]
     var repeatDate: [Bool] = [false, false, false, false, false, false, false]
     var sound: String?
-    var remaind: Bool
+    var remaind: String?
+    var repeatDateString: String?
     var isOn: Bool
     
-    init(time: [Int], repeatDate: [Bool], remaind: Bool, isOn: Bool) {
+    init(time: [Int], repeatDate: [Bool], isOn: Bool) {
         self.time = time
         self.repeatDate = repeatDate
-        self.remaind = remaind
         self.isOn = isOn
+    }
+    
+    func publishAlarm() {
+        
     }
 }

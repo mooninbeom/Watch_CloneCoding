@@ -11,6 +11,8 @@ class AlarmViewController: UIViewController {
     
     var alarmList: [Alarm] = []
     var receivedAlarm: Alarm?
+    var receivedRow: Int?
+    var isEdited: Bool = false
     private let topItem = UINavigationItem()
     
     override func viewDidLoad() {
@@ -18,23 +20,28 @@ class AlarmViewController: UIViewController {
         navigationBar.shadowImage = UIImage()
         self.setUp()
         self.setUpTable()
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-        alarmList.append(Alarm(time: [11,30], repeatDate: [false], remaind: false, isOn: true))
-
-        
+        alarmList.append(Alarm(time: [11,30], repeatDate: [false, false, false, true, false, false, false],  isOn: true))
+//        alarmList.append(Alarm(time: [11,31], repeatDate: [false],  isOn: true))
+//        alarmList.append(Alarm(time: [11,32], repeatDate: [false],  isOn: true))
+//        alarmList.append(Alarm(time: [11,33], repeatDate: [false],  isOn: true))
+//        alarmList.append(Alarm(time: [11,34], repeatDate: [false],  isOn: true))
+//        alarmList.append(Alarm(time: [12,34], repeatDate: [false],  isOn: true))
+//        alarmList.append(Alarm(time: [10,34], repeatDate: [false],  isOn: true))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if receivedAlarm != nil {
-            print("success!")
-            receivedAlarm = nil
+        if let addAlarm = self.receivedAlarm {
+            if self.isEdited {
+                self.alarmList[self.receivedRow!] = addAlarm
+                receivedRow = nil
+            } else {
+                self.alarmList.append(addAlarm)
+            }
+            self.receivedAlarm = nil
         }
+        self.alarmTableView.reloadData()
+        self.sortingAlarm()
     }
     
     lazy var navigationBar: UINavigationBar = {
@@ -43,7 +50,7 @@ class AlarmViewController: UIViewController {
         view.tintColor = .systemOrange
         
         
-        let editBtn = UIBarButtonItem(title: "편집", style: .plain, target: self, action: nil)
+        let editBtn = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(self.editBtnEvent))
         let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addBtnEvent))
         self.topItem.leftBarButtonItem = editBtn
         self.topItem.rightBarButtonItem = addBtn
@@ -55,7 +62,7 @@ class AlarmViewController: UIViewController {
     lazy var alarmTableView: UITableView = {
         let view = UITableView(frame: CGRect.zero, style: .grouped)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.separatorColor = .systemGray
+        view.separatorColor = .darkGray
         view.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return view
     }()
@@ -64,7 +71,7 @@ class AlarmViewController: UIViewController {
     
 }
 
-// MARK: - UI Set Up 메소드
+// MARK: - UI Set Up 및 버튼 / 정렬 메소드
 extension AlarmViewController {
     private func setUp() {
         
@@ -82,11 +89,45 @@ extension AlarmViewController {
         ])
     }
     
+    private func sortingAlarm() {
+        self.alarmList.sort{ (s1, s2) in
+            let hour1 = s1.time[0]
+            let hour2 = s2.time[0]
+            
+            if hour1 == hour2 {
+                let min1 = s1.time[1]
+                let min2 = s2.time[1]
+                return min1 < min2
+            } else {
+                return hour1 < hour2
+            }
+            
+        }
+    }
+    
+    private func editString(time: Int) -> String {
+        if time<10 {
+            return "0\(time)"
+        } else {
+            return String(time)
+        }
+    }
+    
     @objc
     private func addBtnEvent(_ sender: UIButton!){
         let VC = AddAlarmViewController()
         VC.modalPresentationStyle = .automatic
+        VC.isAdded = true
         self.present(VC, animated: true)
+    }
+    
+    @objc
+    private func editBtnEvent(_ sender: UIButton!){
+        if self.alarmTableView.isEditing {
+            self.alarmTableView.setEditing(false, animated: true)
+        } else {
+            self.alarmTableView.setEditing(true, animated: true)
+        }
     }
 }
 
@@ -121,8 +162,13 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         } else {
             let list = self.alarmList[indexPath.row]
+            let hour = self.editString(time: list.time[0])
+            let min = self.editString(time: list.time[1])
+            let intervalText = list.remaind ?? "알람"
+            let intervalRepeatText = list.repeatDateString ?? ""
             cell.firstVisible(isFirst: false)
-            cell.timeLabel.text = "\(list.time[0]):\(list.time[1])"
+            cell.timeLabel.text = "\(hour):\(min)"
+            cell.intervalLabel.text = (intervalRepeatText.isEmpty) ? intervalText : "\(intervalText), \(intervalRepeatText)"
             cell.alarmOnOffBtn.isOn = list.isOn
             return cell
         }
@@ -160,6 +206,15 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sendingAlarm = self.alarmList[indexPath.row]
+        
+        let VC = AddAlarmViewController()
+        VC.isAdded = false
+        VC.edittingAlarm = sendingAlarm
+        VC.row = indexPath.row
+        
+        self.present(VC, animated: true)
+        
         self.alarmTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -175,6 +230,23 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        }
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            print("here1")
+            return}
+        guard let cell = tableView.cellForRow(at: indexPath) as? AlarmCell else {
+            print("here2")
+            return}
+        
+        cell.alarmOnOffBtn.isHidden = true
+        cell.accessoryType = .disclosureIndicator
+    }
     
 }

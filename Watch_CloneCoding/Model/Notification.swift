@@ -43,6 +43,40 @@ class Notification {
             }
         }
         self.vibration.vibrate()
+    }
+    
+    public func publishAlarm(title: String, body: String, userInfo: [ AnyHashable: Any]) {
+        let notiContent = UNMutableNotificationContent()
+        
+        notiContent.badge = 2
+        notiContent.title = title
+        notiContent.body = body
+        notiContent.userInfo = userInfo
+    }
+    
+    private func alarmTrigger(identifier: String, content: UNNotificationContent, alarm: Alarm) {
+        let dateComponents = DateComponents()
+        let isNotRepeat = alarm.repeatDate.allSatisfy{ $0 == false }
+        
+        if isNotRepeat {
+            let alarmTime = alarm.time
+            
+            let nowTime: [Int] = {
+                var result: [Int] = []
+                let formatter = DateFormatter()
+                formatter.dateFormat = "H"
+                let hour = formatter.string(from: Date())
+                result.append(Int(hour)!)
+                
+                formatter.dateFormat = "m"
+                let min = formatter.string(from: Date())
+                result.append(Int(min)!)
+                return result
+            }()
+            
+            
+            
+        }
         
     }
     
