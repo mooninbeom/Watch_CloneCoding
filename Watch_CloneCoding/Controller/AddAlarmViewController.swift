@@ -18,7 +18,7 @@ class AddAlarmViewController: UIViewController {
     private let selectList: [String] = ["반복", "레이블", "사운드", "다시 알림"]
     private let hour: [Int] = {
         var a: [Int] = []
-        for num in 0...24{
+        for num in 0...23{
             a.append(num)
         }
         return a
@@ -90,6 +90,20 @@ class AddAlarmViewController: UIViewController {
         return view
     }()
     
+    lazy var deleteBtn: UIButton = {
+        let view = UIButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setTitle("알람 삭제", for: .normal)
+        view.setTitleColor(.systemRed, for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: 15)
+        view.isHidden = self.isAdded
+        view.backgroundColor = .darkGray.withAlphaComponent(0.3)
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.addTarget(self, action: #selector(deleteBtnEvent), for: .touchUpInside)
+        return view
+    }()
+    
 }
 
 extension AddAlarmViewController {
@@ -117,10 +131,19 @@ extension AddAlarmViewController {
         view.addSubview(optionTableView)
         
         NSLayoutConstraint.activate([
-            optionTableView.topAnchor.constraint(equalTo: timePickerView.bottomAnchor, constant: 10),
+            optionTableView.topAnchor.constraint(equalTo: timePickerView.bottomAnchor),
             optionTableView.heightAnchor.constraint(equalTo: timePickerView.heightAnchor, constant: 50),
             optionTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             optionTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
+        view.addSubview(deleteBtn)
+        
+        NSLayoutConstraint.activate([
+            deleteBtn.leadingAnchor.constraint(equalTo: timePickerView.leadingAnchor),
+            deleteBtn.trailingAnchor.constraint(equalTo: timePickerView.trailingAnchor),
+            deleteBtn.topAnchor.constraint(equalTo: optionTableView.bottomAnchor),
+            deleteBtn.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
@@ -166,7 +189,7 @@ extension AddAlarmViewController {
         
         let isOn = fourthCell.repeatIsOnSwitch.isOn
         let repeatDate = self.repeatDate ?? [false,false,false,false,false,false,false]
-        let addAlarm = Alarm(time: self.time, repeatDate: repeatDate, isOn: true)
+        let addAlarm = Alarm(time: self.time, repeatDate: repeatDate, isOn: (self.isAdded) ? true : isOn)
         
         if let cellText = secondCell.textField.text {
             addAlarm.remaind = (cellText.isEmpty) ? nil : cellText
@@ -186,6 +209,25 @@ extension AddAlarmViewController {
         }
         VC2.viewWillAppear(true)
         self.dismiss(animated: true)
+    }
+    
+    @objc
+    private func deleteBtnEvent(_ sender: UIButton!) {
+        let controller = UIAlertController(title: "경고", message: "정말로 삭제하시겠습니까?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default){ _ in
+            guard let VC1 = self.presentingViewController as? UITabBarController else {return}
+            guard let VC2 = VC1.selectedViewController as? AlarmViewController else {return}
+            
+            VC2.alarmList.remove(at: self.row!)
+            VC2.viewWillAppear(true)
+            self.dismiss(animated: true)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        controller.addAction(ok)
+        controller.addAction(cancel)
+        self.present(controller, animated: true)
+        
+        
     }
 }
 
@@ -287,8 +329,6 @@ extension AddAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 27))
-//        let hour = editString(time: self.hour[row])
-//        let min = editString(time: self.minute[row])
         
         label.textColor = .white.withAlphaComponent(0.9)
         label.text = (component == 0) ? editString(time: self.hour[row]): editString(time: self.minute[row])

@@ -24,7 +24,6 @@ class WorldwideClockViewController: UIViewController {
         clockRefreshTimer.fire()
         setUp()
         setTable()
-//        self.personalClockList.append(WorldClock(translatedName: "대한민국", name: "Asia/Seoul"))
         
     }
     
@@ -36,14 +35,11 @@ class WorldwideClockViewController: UIViewController {
         let view = UINavigationBar()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.tintColor = .systemOrange
-//        let items = UINavigationItem()
         let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(goAddView))
         let editBtn = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editTable))
         self.topItem.rightBarButtonItem = addBtn
         self.topItem.leftBarButtonItem = editBtn
         
-//        items.rightBarButtonItem = addBtn
-//        items.leftBarButtonItem = editBtn
         view.setItems([self.topItem], animated: true)
         return view
     }()
@@ -216,7 +212,7 @@ extension WorldwideClockViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "삭제") {(_,_, success: @escaping (Bool) -> Void) in
-            print("touched!")
+//            print("touched!")
             self.personalClockList.remove(at: indexPath.row)
             self.clockTableView.reloadData()
             success(true)

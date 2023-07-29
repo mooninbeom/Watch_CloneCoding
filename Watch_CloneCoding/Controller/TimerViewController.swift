@@ -478,7 +478,6 @@ extension TimerViewController {
     
     // 타이머가 멈췄을 때
     private func timerStopped() {
-        print("tttt")
         self.timer?.invalidate()
         let offsetTime = self.view.layer.convertTime(CACurrentMediaTime(), from: nil)
         self.view.layer.speed = 0
@@ -507,7 +506,6 @@ extension TimerViewController {
         self.view.layer.beginTime = 0.0
         
         let timeSincePaused = self.view.layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        print(timeSincePaused)
         self.view.layer.beginTime = timeSincePaused
     }
     

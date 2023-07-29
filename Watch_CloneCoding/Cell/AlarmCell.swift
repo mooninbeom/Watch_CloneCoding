@@ -11,7 +11,8 @@ import UIKit
 
 class AlarmCell: UITableViewCell {
     
-    
+    var delegate: AlarmCellDelegate?
+    var indexPath: IndexPath?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,6 +58,7 @@ class AlarmCell: UITableViewCell {
         let view = UISwitch()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.onTintColor = .systemOrange
+        view.addTarget(self, action: #selector(switchOnOff), for: .allTouchEvents)
         return view
     }()
     
@@ -75,8 +77,11 @@ class AlarmCell: UITableViewCell {
         view.setTitle("변경", for: .normal)
         view.setTitleColor(.systemOrange, for: .normal)
         view.backgroundColor = .darkGray.withAlphaComponent(0.5)
+        view.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         return view
     }()
+    
+    
 
 }
 
@@ -86,6 +91,7 @@ extension AlarmCell{
         contentView.addSubview(timeLabel)
         contentView.addSubview(intervalLabel)
         contentView.addSubview(alarmOnOffBtn)
+        self.backgroundColor = .clear
         
         NSLayoutConstraint.activate([
             timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -122,6 +128,11 @@ extension AlarmCell{
         editBtn.layer.cornerRadius = 15
         editBtn.clipsToBounds = true
     }
+    
+    @objc
+    private func switchOnOff(_ sender: Any) {
+        self.delegate?.switchOnOff(indexPath: self.indexPath!)
+    }
 
     func firstVisible(isFirst: Bool) {
         self.timeLabel.isHidden = isFirst
@@ -131,4 +142,9 @@ extension AlarmCell{
         self.sleepTimeLabel.isHidden = !isFirst
         self.editBtn.isHidden = !isFirst
     }
+}
+
+protocol AlarmCellDelegate {
+    func switchOnOff(indexPath: IndexPath)
+    func beginEditingMode(indexPath: IndexPath)
 }

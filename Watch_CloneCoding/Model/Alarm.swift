@@ -22,7 +22,4 @@ class Alarm {
         self.isOn = isOn
     }
     
-    func publishAlarm() {
-        
-    }
 }

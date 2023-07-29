@@ -21,12 +21,6 @@ class AlarmViewController: UIViewController {
         self.setUp()
         self.setUpTable()
         alarmList.append(Alarm(time: [11,30], repeatDate: [false, false, false, true, false, false, false],  isOn: true))
-//        alarmList.append(Alarm(time: [11,31], repeatDate: [false],  isOn: true))
-//        alarmList.append(Alarm(time: [11,32], repeatDate: [false],  isOn: true))
-//        alarmList.append(Alarm(time: [11,33], repeatDate: [false],  isOn: true))
-//        alarmList.append(Alarm(time: [11,34], repeatDate: [false],  isOn: true))
-//        alarmList.append(Alarm(time: [12,34], repeatDate: [false],  isOn: true))
-//        alarmList.append(Alarm(time: [10,34], repeatDate: [false],  isOn: true))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,8 +34,8 @@ class AlarmViewController: UIViewController {
             }
             self.receivedAlarm = nil
         }
-        self.alarmTableView.reloadData()
         self.sortingAlarm()
+        self.alarmTableView.reloadData()
     }
     
     lazy var navigationBar: UINavigationBar = {
@@ -64,6 +58,7 @@ class AlarmViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.separatorColor = .darkGray
         view.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        view.showsHorizontalScrollIndicator = false
         return view
     }()
     
@@ -113,6 +108,14 @@ extension AlarmViewController {
         }
     }
     
+    private func editBtnDelegate() {
+        for idx in 0..<self.alarmList.count {
+            let indexPath = IndexPath(row: idx, section: 1)
+            guard let cell = self.alarmTableView.cellForRow(at: indexPath) as? AlarmCell else {return}
+            cell.delegate?.beginEditingMode(indexPath: indexPath)
+        }
+    }
+    
     @objc
     private func addBtnEvent(_ sender: UIButton!){
         let VC = AddAlarmViewController()
@@ -123,16 +126,19 @@ extension AlarmViewController {
     
     @objc
     private func editBtnEvent(_ sender: UIButton!){
+        
         if self.alarmTableView.isEditing {
             self.alarmTableView.setEditing(false, animated: true)
+            self.editBtnDelegate()
         } else {
             self.alarmTableView.setEditing(true, animated: true)
+            self.editBtnDelegate()
         }
     }
 }
 
 // MARK: - TableView 셋업
-extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
+extension AlarmViewController: UITableViewDelegate, UITableViewDataSource, AlarmCellDelegate{
     
     private func setUpTable() {
         self.alarmTableView.delegate = self
@@ -156,6 +162,8 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = self.alarmTableView.dequeueReusableCell(withIdentifier: "alarmCell") as? AlarmCell else {
             return UITableViewCell()
         }
+        cell.delegate = self
+        cell.indexPath = indexPath
         
         if indexPath.section == 0 {
             cell.firstVisible(isFirst: true)
@@ -170,6 +178,8 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
             cell.timeLabel.text = "\(hour):\(min)"
             cell.intervalLabel.text = (intervalRepeatText.isEmpty) ? intervalText : "\(intervalText), \(intervalRepeatText)"
             cell.alarmOnOffBtn.isOn = list.isOn
+            cell.timeLabel.textColor = (cell.alarmOnOffBtn.isOn) ? .white : .white.withAlphaComponent(0.5)
+            cell.intervalLabel.textColor = (cell.alarmOnOffBtn.isOn) ? .white : .white.withAlphaComponent(0.5)
             return cell
         }
     }
@@ -206,6 +216,10 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            self.alarmTableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
         let sendingAlarm = self.alarmList[indexPath.row]
         
         let VC = AddAlarmViewController()
@@ -236,17 +250,37 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return true
     }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteBtn = UIContextualAction(style: .destructive, title: "삭제"){ (_, _, success: @escaping (Bool) -> Void) in
+            self.alarmList.remove(at: indexPath.row)
+            self.alarmTableView.reloadData()
+        }
+        let result = UISwipeActionsConfiguration(actions: [deleteBtn])
+        return result
+    }
     
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            print("here1")
-            return}
-        guard let cell = tableView.cellForRow(at: indexPath) as? AlarmCell else {
-            print("here2")
-            return}
-        
-        cell.alarmOnOffBtn.isHidden = true
-        cell.accessoryType = .disclosureIndicator
+    func switchOnOff(indexPath: IndexPath) {
+        guard let cell = self.alarmTableView.cellForRow(at: indexPath) as? AlarmCell else {return}
+
+        if cell.alarmOnOffBtn.isOn {
+            cell.timeLabel.textColor = .white
+            cell.intervalLabel.textColor = .white
+            self.alarmList[indexPath.row].isOn = true
+        } else {
+            cell.timeLabel.textColor = .white.withAlphaComponent(0.5)
+            cell.intervalLabel.textColor = .white.withAlphaComponent(0.5)
+            self.alarmList[indexPath.row].isOn = false
+        }
+    }
+    
+    func beginEditingMode(indexPath: IndexPath) {
+        guard let cell = self.alarmTableView.cellForRow(at: indexPath) as? AlarmCell else {return}
+        if self.alarmTableView.isEditing {
+            cell.alarmOnOffBtn.isHidden = true
+        } else {
+            cell.alarmOnOffBtn.isHidden = false
+        }
     }
     
 }
